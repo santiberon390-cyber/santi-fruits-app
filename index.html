@@ -112,13 +112,14 @@
 
     <div class="card">
       <h2>Método de pago</h2>
-      <button class="pay-btn" onclick="pagar('Efectivo')">Efectivo</button>
-      <button class="pay-btn" onclick="pagar('Mercado Pago')">Mercado Pago</button>
+      <button id="btn-efectivo" class="pay-btn" onclick="pagar('Efectivo')">Efectivo</button>
+      <button id="btn-mp" class="pay-btn" onclick="pagar('Mercado Pago')">Mercado Pago</button>
       <p id="mp" class="small"></p>
     </div>
 
     <div class="card">
       <h2>Resumen</h2>
+      <p>Cantidad: <span id="cantidad">0</span></p>
       <p>Total: $<span id="total">0</span></p>
       <button id="confirmar" class="success" onclick="confirmar()" disabled>Confirmar pedido</button>
     </div>
@@ -128,16 +129,21 @@
 
   <script>
     let total = 0
+    let cantidad = 0
     let metodo = ""
 
     function agregar(precio) {
       total += precio
+      cantidad += 1
       document.getElementById("total").innerText = total
+      document.getElementById("cantidad").innerText = cantidad
       validar()
     }
 
     function pagar(tipo) {
       metodo = tipo
+      document.getElementById("btn-efectivo").style.background = tipo === 'Efectivo' ? '#16a34a' : '#1d4ed8'
+      document.getElementById("btn-mp").style.background = tipo === 'Mercado Pago' ? '#16a34a' : '#1d4ed8'
       document.getElementById("mp").innerText = "El pago se realiza en el momento de la entrega"
       validar()
     }
