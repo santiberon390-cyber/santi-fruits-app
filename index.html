@@ -96,19 +96,11 @@
     </div>
 
     <div class="card">
-      <h2>Combo Fresh</h2>
-      <p>Mix clásico súper fresco</p>
-      <span class="badge">Más vendido</span>
-      <p><strong>$1800</strong></p>
-      <button onclick="agregar(1800)">Agregar</button>
-    </div>
-
-    <div class="card">
-      <h2>Combo Power</h2>
-      <p>Energía natural para el día</p>
-      <span class="badge">Recomendado</span>
-      <p><strong>$2800</strong></p>
-      <button onclick="agregar(2800)">Agregar</button>
+      <h2>Mix clásico</h2>
+      <p>(Manzana roja o verde, Naranja, Banana, Pera, Durazno)</p>
+      <span class="badge">Combo único</span>
+      <p><strong>$1500</strong></p>
+      <button onclick="agregar(1500)">Agregar</button>
     </div>
 
     <div class="card">
@@ -146,11 +138,7 @@
 
     function pagar(tipo) {
       metodo = tipo
-      if (tipo === "Mercado Pago") {
-        document.getElementById("mp").innerText = "Alias: TU_ALIAS_MP (se paga al recibir)"
-      } else {
-        document.getElementById("mp").innerText = "Pago en efectivo al recibir"
-      }
+      document.getElementById("mp").innerText = "El pago se realiza en el momento de la entrega"
       validar()
     }
 
@@ -170,9 +158,12 @@
         `Total: $${total}%0A`+
         `Pago: ${metodo}`
       // Reemplazá 54911XXXXXXXX por tu número de WhatsApp
-      alert("Gracias por tu pedido 😊 En segundos te abrimos WhatsApp para finalizarlo");
+      alert("¡MUCHAS GRACIAS POR TU COMPRA! ❤️")
       window.open(`https://wa.me/5491132009363?text=${mensaje}`, "_blank")
     }
   </script>
 </body>
 </html>
+
+  
+  
