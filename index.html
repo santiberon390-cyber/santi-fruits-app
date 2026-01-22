@@ -101,6 +101,7 @@
       <span class="badge">Combo único</span>
       <p><strong>$1500</strong></p>
       <button onclick="agregar(1500)">Agregar</button>
+      <button onclick="quitar(1500)" style="background:#ef4444">Quitar</button>
     </div>
 
     <div class="card">
@@ -138,6 +139,17 @@
       document.getElementById("total").innerText = total
       document.getElementById("cantidad").innerText = cantidad
       validar()
+    }
+
+    function quitar(precio) {
+      if (cantidad > 0) {
+        total -= precio
+        cantidad -= 1
+        if (total < 0) total = 0
+        document.getElementById("total").innerText = total
+        document.getElementById("cantidad").innerText = cantidad
+        validar()
+      }
     }
 
     function pagar(tipo) {
